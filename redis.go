@@ -65,4 +65,6 @@ func main() {
 	}
 
 	ExampleClient(client)
+
+	redis
 }

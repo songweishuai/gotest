@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"os"
 	"test/checkErr"
-	"fmt"
 )
 
 var name = flag.String("n", "", "please input filename")
@@ -16,16 +16,16 @@ func main() {
 	}
 
 	fileInfo, err := os.Lstat(*name)
-	checkErr.CheckErr(err,true)
+	checkErr.CheckErr(err, true)
 
-	switch mode:=fileInfo.Mode() ;{
+	switch mode := fileInfo.Mode(); {
 	case mode.IsDir():
-		fmt.Printf("%+v\n",mode)
-		fmt.Println(*name,"is dir")
+		fmt.Printf("%+v\n", mode)
+		fmt.Println(*name, "is dir")
 	case mode.IsRegular():
-		fmt.Printf("%+v\n",mode)
-		fmt.Println(*name,"is regular file")
+		fmt.Printf("%+v\n", mode)
+		fmt.Println(*name, "is regular file")
 	default:
-		fmt.Printf("%+v\n",mode)
+		fmt.Printf("%+v\n", mode)
 	}
 }
