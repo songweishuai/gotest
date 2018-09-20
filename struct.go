@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"test/struct"
 	"unsafe"
+	"gotest/struct"
+	"encoding/json"
 )
 
 /*
@@ -56,10 +58,5 @@ func main() {
 	type b struct {
 		x int `a`
 	}
-
-	var aa a
-	var bb b
-
-	aa=bb
-
+	json.Marshal()
 }

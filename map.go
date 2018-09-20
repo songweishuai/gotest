@@ -10,6 +10,8 @@ func main() {
 	countryCapitionalMap["Japan"] = "Tokyo"
 	countryCapitionalMap["India"] = "new Delhi"
 
+	fmt.Println(countryCapitionalMap["asd"])
+
 	for country := range countryCapitionalMap {
 		fmt.Println("Capital of", country, "is", countryCapitionalMap[country])
 	}

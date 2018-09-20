@@ -4,6 +4,11 @@ import "fmt"
 
 func main() {
 	s := "Hello World"
+	s=s+"songweishuai"
+	fmt.Println(s)
+
+	s=fmt.Sprintf("")
+
 	s1 := s[:5]
 	s2 := s[7:]
 	s3 := s[1:5]
