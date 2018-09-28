@@ -4,10 +4,10 @@ import "fmt"
 
 func main() {
 	s := "Hello World"
-	s=s+"songweishuai"
-	fmt.Println(s)
+	s = s + "songweishuai"
+	fmt.Println(s, len(s))
 
-	s=fmt.Sprintf("")
+	//s = fmt.Sprintf("")
 
 	s1 := s[:5]
 	s2 := s[7:]
@@ -22,11 +22,11 @@ func main() {
 
 	bs := []rune(s)
 	bs[0] = 'w'
-	fmt.Printf("s:%s\n",string(bs))
+	fmt.Printf("s:%s\n", string(bs))
 
-	bss:=[]byte(s)
-	bss[1]='w'
-	fmt.Printf("bss:%s\n",string(bss))
-	s=string(bss)
-	fmt.Printf("s:%s\n",s)
+	bss := []byte(s)
+	bss[1] = 'w'
+	fmt.Printf("bss:%s\n", string(bss))
+	s = string(bss)
+	fmt.Printf("s:%s\n", s)
 }

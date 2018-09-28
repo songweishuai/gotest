@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 	"unsafe"
-)
+	)
 
 type Slice struct {
 	ptr unsafe.Pointer
@@ -27,6 +28,21 @@ func main() {
 	} else {
 		fmt.Println("slice1 != slice2")
 	}
+
+	s3 := make([]int, 5, 6)
+	for i := 0; i < 5; i++ {
+		s3[i] = i
+	}
+
+	//s4 := append(s3, 5)
+	s4 := s3[:0]
+	fmt.Println(s4)
+
+	fmt.Println((*reflect.SliceHeader)(unsafe.Pointer(&s3)).Data)
+	fmt.Println((*reflect.SliceHeader)(unsafe.Pointer(&s4)).Data)
+
+	//regexp.MustCompile()
+	append()
 }
 
 //func main() {

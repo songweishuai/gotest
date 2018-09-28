@@ -16,5 +16,14 @@ func main() {
 	fmt.Println("i: su:", sum)
 	fmt.Println("len is", len(a), "haha")
 
-	//var b [3]*int
+	changeArrray(a)
+	fmt.Println(a)
+
+	b := &a
+	fmt.Println(b)
+}
+
+func changeArrray(ar [5]int) {
+	ar[2] = 11
+	fmt.Println(ar)
 }
