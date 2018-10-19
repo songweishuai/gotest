@@ -1,5 +1,6 @@
 package main
 
+
 func main() {
 
 	panic("panic error")
@@ -13,4 +14,6 @@ func test() {
 			println(err.(string))
 		}
 	}()
+
+	//errors.New()
 }

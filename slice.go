@@ -42,7 +42,7 @@ func main() {
 	fmt.Println((*reflect.SliceHeader)(unsafe.Pointer(&s4)).Data)
 
 	//regexp.MustCompile()
-	append()
+	//append()
 }
 
 //func main() {

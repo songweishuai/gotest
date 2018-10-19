@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+	"io"
+	"os"
+	"strings"
+)
 
 /*
 type Stinger interface {
@@ -86,7 +92,6 @@ func main() {
 	fmt.Println(u)
 }*/
 
-
 /*
 type User struct {
 	id   int
@@ -110,32 +115,54 @@ func main() {
 	}
 }*/
 
-type Stringer interface {
-	String() string
+//type Stringer interface {
+//	String() string
+//}
+//
+//type Printer interface {
+//	String() string
+//	//Stringer
+//	Print()
+//}
+//
+//type User struct {
+//	id int
+//	name string
+//}
+//
+//func (self *User)String() string{
+//	return fmt.Sprintf("%d,%v",self.id,self.name)
+//}
+//
+//func (self *User)Print()  {
+//	fmt.Println(self.String())
+//}
+//
+//func main() {
+//	var o Printer=&User{1,"tom"}
+//	var s Stringer=o
+//	fmt.Println(s.String())
+//}
+
+
+
+type UpperWriter struct {
+	io.Writer
 }
 
-type Printer interface {
-	String() string
-	//Stringer
-	Print()
+func (p *UpperWriter) Write(data []byte) (n int, err error) {
+	//return p.Write(bytes.ToUpper(data))
+	return p.Writer.Write(bytes.ToUpper(data))
 }
 
-type User struct {
-	id int
-	name string
-}
+type UpperString string
 
-func (self *User)String() string{
-	return fmt.Sprintf("%d,%v",self.id,self.name)
-}
-
-func (self *User)Print()  {
-	fmt.Println(self.String())
+func (s UpperString) String() string {
+	return strings.ToUpper(string(s))
 }
 
 func main() {
-	var o Printer=&User{1,"tom"}
-	var s Stringer=o
-	fmt.Println(s.String())
-}
+	fmt.Fprintln(&UpperWriter{os.Stdout}, "hello world")
 
+	fmt.Fprintln(os.Stdout, UpperString("hello world"))
+}
