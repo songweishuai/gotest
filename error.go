@@ -1,19 +1,36 @@
 package main
 
+import "fmt"
 
 func main() {
-
-	panic("panic error")
-
-	//test()
-}
-
-func test() {
 	defer func() {
 		if err := recover(); err != nil {
+			fmt.Println("defer 1")
 			println(err.(string))
 		}
 	}()
 
-	//errors.New()
+	defer func() {
+		fmt.Println("defer 2")
+	}()
+
+
+	defer func() {
+		fmt.Println("defer 3")
+	}()
+
+	//test()
+
+	panic("panic error")
+}
+
+func test() {
+
+	defer func() {
+		if err := recover(); err != nil {
+			println(err.(string))
+			fmt.Println("test function wrapping")
+		}
+		panic("test panic error")
+	}()
 }
