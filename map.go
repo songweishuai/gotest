@@ -33,7 +33,7 @@ import "fmt"
 
 func main() {
 	var m =map[interface{}]interface{}{
-
+		"song":"weishuai",
 	}
 
 	fmt.Println(m)

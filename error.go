@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
 	defer func() {
@@ -20,8 +23,9 @@ func main() {
 	}()
 
 	//test()
-
 	panic("panic error")
+
+	log.Fatal()
 }
 
 func test() {

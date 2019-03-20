@@ -8,7 +8,9 @@ import (
 )
 
 func main() {
-	db, err := sql.Open("mysql", "root:123456@/mysql?charset=utf8")
+	//db, err := sql.Open("mysql", "root:Thunder#123@/mysql?charset=utf8")
+	db, err := sql.Open("mysql", "root:Thunder#123@/mysql?charset=utf8")
+
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)

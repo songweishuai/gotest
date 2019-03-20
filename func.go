@@ -7,7 +7,7 @@ func main() {
 		return 100
 	})
 
-	s2 := format(func(s string, x, y int) string  {
+	s2 := format(func(s string, x, y int) string {
 		return fmt.Sprintf(s, x, y)
 	}, "x=%d,y=%d", 10, 20)
 
@@ -15,8 +15,18 @@ func main() {
 
 	println(test1("sum:%d", 1, 2, 3, 4, 5))
 
-	s:=[]int{1,1,1}
-	println(test1("sum:%d",s...))
+	// 可变参数
+	s := []int{1, 1, 1}
+	println(test1("sum:%d", s...))
+	var a = []interface{}{123, "abc"}
+	Print(a...)//
+	Print(a)
+	//Print(s...) 非interface类型的切片不可以解包
+	Print(s)
+}
+
+func Print(a ...interface{}) {
+	fmt.Println(a...)
 }
 
 func test(fn func() int) int {

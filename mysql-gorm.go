@@ -289,4 +289,5 @@ func main() {
 	if *dropTable != "" {
 		DeleteTable(db)
 	}
+
 }

@@ -71,13 +71,13 @@ package main
 //	fmt.Println(s.ListenAndServe())
 //}
 
-
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"fmt"
 )
+
 func echo(wr http.ResponseWriter, r *http.Request) {
 	msg, err := ioutil.ReadAll(r.Body)
 	if err != nil {
