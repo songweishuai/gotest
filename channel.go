@@ -1,12 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"os"
-	"os/signal"
-	"syscall"
-	"time"
-)
+import "fmt"
 
 //func main() {
 //	wg := new(sync.WaitGroup)
@@ -138,29 +132,47 @@ import (
 //}
 
 // 生产者，消费者模型
-func Producer(factor int, out chan<- int) {
-	for i := 0; ; i++ {
-		fmt.Println("Producer:", factor)
-		out <- i * factor
-		time.Sleep(time.Second)
-	}
-}
+//func Producer(factor int, out chan<- int) {
+//	for i := 0; ; i++ {
+//		fmt.Println("Producer:", factor)
+//		out <- i * factor
+//		time.Sleep(time.Second)
+//	}
+//}
+//
+//func Consumer(in <-chan int) {
+//	for v := range in {
+//		fmt.Println(v)
+//	}
+//}
+//
+//func main() {
+//	ch := make(chan int, 64)
+//
+//	go Producer(3, ch)
+//	go Producer(11, ch)
+//	go Consumer(ch)
+//
+//	//time.Sleep(time.Hour)
+//	sig := make(chan os.Signal, 1)
+//	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
+//	fmt.Println("quit (%v)\n", <-sig)
+//}
 
-func Consumer(in <-chan int) {
-	for v := range in {
+// select 使用
+func main() {
+	ch := make(chan int)
+	go func() {
+		for {
+			select {
+			case ch <- 0:
+			case ch <- 1:
+
+			}
+		}
+	}()
+
+	for v := range ch {
 		fmt.Println(v)
 	}
-}
-
-func main() {
-	ch := make(chan int, 64)
-
-	go Producer(3, ch)
-	go Producer(11, ch)
-	go Consumer(ch)
-
-	//time.Sleep(time.Hour)
-	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
-	fmt.Println("quit (%v)\n", <-sig)
 }

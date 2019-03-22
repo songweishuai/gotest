@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38c772c2-356b-44d2-acf0-4cf37ce1356a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pubsub.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestContext.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/channel.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel.go" afterDir="false" />
     </list>
@@ -52,22 +52,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/channel.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="164" column="37" lean-forward="true" selection-start-line="164" selection-start-column="4" selection-end-line="164" selection-end-column="37" />
+            <state relative-caret-position="565">
+              <caret line="175" column="21" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pubsub.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="39">
+              <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
               <folding>
-                <element signature="e#14#48#0" expanded="true" />
+                <element signature="e#14#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pubsub.go">
+        <entry file="file://$PROJECT_DIR$/TestContext.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="117" column="36" lean-forward="true" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+            <state relative-caret-position="492">
+              <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
               <folding>
-                <element signature="e#14#40#0" expanded="true" />
+                <element signature="e#14#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,6 +118,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>con</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -140,6 +157,7 @@
         <option value="$PROJECT_DIR$/func.go" />
         <option value="$PROJECT_DIR$/channel.go" />
         <option value="$PROJECT_DIR$/pubsub.go" />
+        <option value="$PROJECT_DIR$/TestContext.go" />
       </list>
     </option>
   </component>
@@ -207,6 +225,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1005" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.6938776" side_tool="true" weight="0.14840426" />
       <window_info id="Favorites" order="1" side_tool="true" weight="0.32960597" />
@@ -220,7 +239,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32998747" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49946752" visible="true" weight="0.22365339" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49946752" weight="0.7915691" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005325" side_tool="true" weight="0.29738933" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -233,7 +252,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/go/src/database/sql/sql.go" />
     <entry file="file://$PROJECT_DIR$/tcp.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -506,20 +524,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/channel.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="164" column="37" lean-forward="true" selection-start-line="164" selection-start-column="4" selection-end-line="164" selection-end-column="37" />
-          <folding>
-            <element signature="e#14#48#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="565">
+          <caret line="175" column="21" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pubsub.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="117" column="36" lean-forward="true" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+        <state relative-caret-position="39">
+          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
           <folding>
             <element signature="e#14#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestContext.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <element signature="e#14#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
