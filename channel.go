@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 //func main() {
 //	wg := new(sync.WaitGroup)
@@ -160,19 +163,51 @@ import "fmt"
 //}
 
 // select 使用
-func main() {
-	ch := make(chan int)
-	go func() {
-		for {
-			select {
-			case ch <- 0:
-			case ch <- 1:
+//func main() {
+//	ch := make(chan int)
+//	go func() {
+//		for {
+//			select {
+//			case ch <- 0:
+//			case ch <- 1:
+//
+//			}
+//		}
+//	}()
+//
+//	for v := range ch {
+//		fmt.Println(v)
+//	}
+//}
 
-			}
+// select 和 default分支实现goroutine退出
+func worker(cancel chan bool) {
+	for {
+		select {
+		case <-cancel:
+		default:
+			fmt.Println("hello")
 		}
-	}()
-
-	for v := range ch {
-		fmt.Println(v)
 	}
+}
+
+// 只关闭一个goroutine
+//func main() {
+//	cancel := make(chan bool)
+//	go worker(cancel)
+//
+//	time.Sleep(time.Second)
+//	cancel <- false
+//}
+
+// 同时关闭多个
+func main() {
+	cancel := make(chan bool)
+
+	for i := 0; i < 10; i++ {
+		go worker(cancel)
+	}
+
+	time.Sleep(time.Second)
+	close(cancel)
 }

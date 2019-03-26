@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"strings"
 	"unsafe"
 )
 
@@ -55,6 +56,8 @@ func main() {
 	//var 宋 = 10
 	//fmt.Println(宋)
 
-	var a int
-	fmt.Println(a)
+	//var a int
+	//fmt.Println(a)
+
+	fmt.Println(strings.Split("http://192.168.1.201/modules/online_h", "/"))
 }

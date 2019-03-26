@@ -1,5 +1,12 @@
 package main
 
+import (
+	"log"
+	"net/http"
+	"os"
+	"time"
+)
+
 //test github/gin
 //import (
 //	"fmt"
@@ -71,33 +78,64 @@ package main
 //	fmt.Println(s.ListenAndServe())
 //}
 
-import (
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
-)
+// 使用go自带http库实现简单的web服务器
+//import (
+//	"fmt"
+//	"io/ioutil"
+//	"log"
+//	"net/http"
+//)
+//
+//func echo(wr http.ResponseWriter, r *http.Request) {
+//	msg, err := ioutil.ReadAll(r.Body)
+//	if err != nil {
+//		wr.Write([]byte("echo error"))
+//		return
+//	}
+//	fmt.Println(msg)
+//	fmt.Println(r.Method)
+//
+//	writeLen, err := wr.Write(msg)
+//	if err != nil || writeLen != len(msg) {
+//		log.Println(err, "write len:", writeLen)
+//	}
+//}
+//
+//func main() {
+//	http.HandleFunc("/", echo)
+//
+//	err := http.ListenAndServe("192.168.1.97:2121", nil)
+//
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//}
 
-func echo(wr http.ResponseWriter, r *http.Request) {
-	msg, err := ioutil.ReadAll(r.Body)
-	if err != nil {
-		wr.Write([]byte("echo error"))
-		return
-	}
-	fmt.Println(msg)
-	fmt.Println(r.Method)
+// 使用middleware剥离非业务逻辑
 
-	writeLen, err := wr.Write(msg)
-	if err != nil || writeLen != len(msg) {
-		log.Println(err, "write len:", writeLen)
-	}
+var logger = log.New(os.Stdout, "", 0)
+
+func hello(wr http.ResponseWriter, r *http.Request) {
+	wr.Write([]byte("hello"))
+}
+
+// timeMiddleware 函数使用接口型函数，用函数实现接口。
+func timeMiddleware(next http.HandlerFunc) http.Handler {
+	return http.HandlerFunc(func(wr http.ResponseWriter, r *http.Request) {
+		timeStart := time.Now()
+
+		next.ServeHTTP(wr, r)
+
+		timeElapsed := time.Since(timeStart)
+
+		logger.Println(timeElapsed)
+	})
 }
 
 func main() {
-	http.HandleFunc("/", echo)
-
-	err := http.ListenAndServe("192.168.1.97:2121", nil)
-
+	http.Handle("/", timeMiddleware(hello))
+	//http.HandleFunc("/",hello)
+	err := http.ListenAndServe("192.168.1.96:2121", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
