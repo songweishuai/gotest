@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38c772c2-356b-44d2-acf0-4cf37ce1356a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testRand.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testHash.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bucket.go" beforeDir="false" afterPath="$PROJECT_DIR$/bucket.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,16 +52,16 @@
         <entry file="file://$PROJECT_DIR$/http.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="663">
-              <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+              <caret line="142" selection-start-line="142" selection-end-line="142" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testRand.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+            <state relative-caret-position="240">
+              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
                 <element signature="e#14#44#0" expanded="true" />
               </folding>
@@ -80,19 +79,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/time/tick.go">
+        <entry file="file:///usr/local/go/src/time/time.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+            <state relative-caret-position="262">
+              <caret line="1114" column="23" selection-start-line="1114" selection-start-column="23" selection-end-line="1114" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/time/time.go">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/testHash.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15120">
-              <caret line="630" column="5" selection-start-line="630" selection-start-column="5" selection-end-line="630" selection-end-column="5" />
+            <state relative-caret-position="334">
+              <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+              <folding>
+                <element signature="e#14#63#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,6 +176,7 @@
         <option value="$PROJECT_DIR$/testValidator.go" />
         <option value="$PROJECT_DIR$/bucket.go" />
         <option value="$PROJECT_DIR$/testRand.go" />
+        <option value="$PROJECT_DIR$/testHash.go" />
       </list>
     </option>
   </component>
@@ -256,7 +259,7 @@
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.6938776" side_tool="true" weight="0.14840426" />
       <window_info id="Favorites" order="1" side_tool="true" weight="0.32960597" />
-      <window_info active="true" content_ui="combo" x="1359" y="138" width="266" height="868" id="Project" order="2" sideWeight="0.30612245" visible="true" weight="0.15495208" />
+      <window_info content_ui="combo" x="1359" y="138" width="266" height="868" id="Project" order="2" sideWeight="0.30612245" visible="true" weight="0.15495208" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3290398" />
@@ -266,7 +269,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3290398" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3290398" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49893504" weight="0.3290398" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49893504" visible="true" weight="0.3290398" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50106496" side_tool="true" weight="0.75526935" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -279,9 +282,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/flag.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/file.go">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -575,13 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/time/time.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15120">
-          <caret line="630" column="5" selection-start-line="630" selection-start-column="5" selection-end-line="630" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../gopkg.in/go-playground/validator.v9/validator_instance.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6000">
@@ -612,7 +605,7 @@
     <entry file="file://$PROJECT_DIR$/http.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
-          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
         </state>
       </provider>
     </entry>
@@ -625,10 +618,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testRand.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="240">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding>
             <element signature="e#14#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/go/src/time/time.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="1114" column="23" selection-start-line="1114" selection-start-column="23" selection-end-line="1114" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testHash.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+          <folding>
+            <element signature="e#14#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
