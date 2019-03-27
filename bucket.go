@@ -28,4 +28,6 @@ func main() {
 
 	go fillToken()
 	time.Sleep(time.Hour)
+	//rand.Perm()
+	//parser.Trace
 }
