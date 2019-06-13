@@ -19,8 +19,14 @@ func main() {
 	changeArrray(a)
 	fmt.Println(a)
 
-	b := &a
+	//b := &a
+	b := a
+	b[0] = 11
 	fmt.Println(b)
+	fmt.Println(a)
+
+	c := []int{11, 12, 13, 14, 15, 16}
+	fmt.Println(c)
 }
 
 func changeArrray(ar [5]int) {

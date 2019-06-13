@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 //func main() {
@@ -22,7 +23,7 @@ import (
 
 // 初始化随机种子
 func init() {
-	//rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().UnixNano())
 }
 
 // 创建索引切片，随机索引切片,使用两两交换方式
@@ -34,7 +35,7 @@ func shuffle1(slice []int) {
 	}
 }
 
-// 创建索引切片，随机索引切片，使用随机选取一个放到最后
+// fisher-yates算法 创建索引切片，随机索引切片，使用随机选取一个放到最后
 func shuffle2(slice []int) {
 	for i := len(slice) - 1; i > 0; i-- {
 		a := rand.Intn(i)

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"unicode/utf8"
 	"unsafe"
 )
 
@@ -11,6 +12,7 @@ func main() {
 	s := "Hello World"
 	s = s + "songweishuai"
 	fmt.Println(s, len(s))
+
 
 	//s = fmt.Sprintf("")
 	s4 := "songweishuai"
@@ -58,6 +60,20 @@ func main() {
 
 	//var a int
 	//fmt.Println(a)
-
+	//sl := strings.Split("http://192.168.1.201/modules/online_h", "/")
 	fmt.Println(strings.Split("http://192.168.1.201/modules/online_h", "/"))
+
+	var test string = "songweishuai"
+	var test_1 int = 10
+	fmt.Println(reflect.TypeOf(test).String())
+	fmt.Println(reflect.TypeOf(test_1).String())
+
+	var testString string = "宋weishuai"
+	r, size := utf8.DecodeRuneInString(testString)
+	fmt.Println(r, size)
+	fmt.Println(testString[4])
+	buf := make([]byte, 3)
+	fmt.Println(utf8.EncodeRune(buf, 23435))
+	fmt.Println(buf)
+	fmt.Println(string(buf))
 }

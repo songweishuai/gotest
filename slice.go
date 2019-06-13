@@ -42,27 +42,66 @@ func main() {
 	//fmt.Println(a)
 
 	// 删除切片开头元素
-	//a := []int{1, 2, 3}
+	//a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	//b := a[1:]
 	//fmt.Println("b:", b)
+	//// 删除第一个元素
 	//c := copy(a, a[1:])
 	//fmt.Println("c:", c)
+	//fmt.Println("a:", a)
+	//fmt.Println("a:", a[:c])
 	//a = a[:copy(a, a[1:])]
 	//fmt.Println("a:", a)
 
 	// 删除中间元素
-	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
-	fmt.Println("a:", a)
+	//a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	// 删除3,4,使用copy函数
+	//c := copy(a[2:], a[4:])
+	//fmt.Println(c)
+	//fmt.Println(a[:2+c])
+	// 使用append函数删除3,4
+	//fmt.Println(len(a))
+	//fmt.Println(cap(a))
+	//a = append(a[:2], a[4:]...)
+	//fmt.Println(a)
+	//fmt.Println(len(a))
+	//fmt.Println(cap(a))
+
 	//a = a[:3+copy(a[3:], a[3+1:])]
-	b := copy(a[3:], a[3+1:])
-	fmt.Println("b:", b)
-	a = a[:3+b]
-	fmt.Println("a:", a)
+	//b := copy(a[3:], a[3+1:])
+	//fmt.Println("b:", b)
+	//a = a[:3+b]
+	//fmt.Println("a:", a)
 
 	//x := []int{2, 3, 5, 7, 11}
 	//y := x[1:2]
 	//fmt.Println("x:", x)
 	//fmt.Println("y:", y, len(y), cap(y))
+
+	// 切片和数组定义区分
+	// 带有...的数组
+	//a := [...]int{1, 2, 3, 4, 5, 6}
+	//fmt.Println(reflect.TypeOf(a))
+	//// 没有...的就是切片
+	//b := []int{7, 8, 9, 10}
+	//fmt.Println(reflect.TypeOf(b))
+
+	// 切片以参数传入
+	sl := make([]int, 3, 10)
+	fmt.Println(sl)
+	sliceTest(sl)
+	fmt.Println("len:", len(sl))
+	//unicode.Sk
+	fmt.Println("cap:", cap(sl))
+	fmt.Println(sl)
+	b := new(int)
+	fmt.Println(b)
+}
+
+func sliceTest(sl []int) {
+	sl[0] = 1
+	sl = append(sl, 10)
+	fmt.Println("sl:", sl)
 }
 
 //func main() {

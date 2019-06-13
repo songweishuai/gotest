@@ -9,7 +9,7 @@ func main() {
 
 	fn()
 
-	fns := [](func(x int) int){
+	fns := []func(x int) int{
 		func(x int) int {
 			return x + 1
 		},

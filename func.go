@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 func main() {
 	s1 := test(func() int {
@@ -19,10 +22,22 @@ func main() {
 	s := []int{1, 1, 1}
 	println(test1("sum:%d", s...))
 	var a = []interface{}{123, "abc"}
-	Print(a...)//
+	Print(a...) //
 	Print(a)
-	//Print(s...) 非interface类型的切片不可以解包
+	// 非interface类型的切片不可以解包
+	// Print(s...)
 	Print(s)
+
+	// 互斥锁使用
+	var total struct {
+		sync.Mutex
+		value int
+	}
+
+	total.Mutex.Lock()
+	total.value = 2
+	total.Unlock()
+	fmt.Println(total.value)
 }
 
 func Print(a ...interface{}) {
@@ -47,5 +62,6 @@ func test1(s string, n ...int) string {
 		x += i
 		//println(i)
 	}
+
 	return fmt.Sprintf(s, x)
 }
