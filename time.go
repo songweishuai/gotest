@@ -21,4 +21,16 @@ func main() {
 	//fmt.Println("Until", time.Until(t1))
 	fmt.Println("the call took %v to run\n", t1.Sub(t0))
 
+
+	// 计算时区
+	fmt.Println("计算时区")
+	staticStr := "2018-03-09 10:00:00"
+	var timeFomatLoc *time.Location
+	timeFomatLoc,err:=time.LoadLocation("Local")
+	fmt.Println(timeFomatLoc)
+	Format := "2006-01-02 15:04:05"
+	t,err:=time.ParseInLocation(Format,staticStr,timeFomatLoc)
+	if err == nil {
+		fmt.Println(t)
+	}
 }

@@ -1,7 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
 	"time"
 )
 
@@ -135,32 +137,43 @@ import (
 //}
 
 // 生产者，消费者模型
-//func Producer(factor int, out chan<- int) {
-//	for i := 0; ; i++ {
-//		fmt.Println("Producer:", factor)
-//		out <- i * factor
-//		time.Sleep(time.Second)
-//	}
-//}
-//
-//func Consumer(in <-chan int) {
-//	for v := range in {
-//		fmt.Println(v)
-//	}
-//}
-//
-//func main() {
-//	ch := make(chan int, 64)
-//
-//	go Producer(3, ch)
-//	go Producer(11, ch)
-//	go Consumer(ch)
-//
-//	//time.Sleep(time.Hour)
-//	sig := make(chan os.Signal, 1)
-//	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
-//	fmt.Println("quit (%v)\n", <-sig)
-//}
+func Producer(factor interface{}, ch chan<- interface{}) {
+	val := factor.(int)
+	for i := 0; ; i++ {
+		ch <- i * val
+		time.Sleep(time.Second)
+	}
+}
+
+func Consumer(ch <-chan interface{}) {
+	//select {
+	//case ch:
+	//}
+
+	//for {
+	//	//fmt.Println((<-ch).(int))
+	//	fmt.Println(<-ch)
+	//}
+
+}
+
+func main() {
+	// 创建channel
+	ch := make(chan interface{}, 54)
+
+	// 启动一个生产3倍数的线程
+	go Producer(3, ch)
+	// 启动一个生产5倍数的线程
+	// go Producer(5, ch)
+
+	go Consumer(ch)
+
+	//select {}
+	sig := make(chan os.Signal, 1)
+	//signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
+	signal.Notify(sig,syscall.SIGTERM)
+	<-sig
+}
 
 // select 使用
 //func main() {
@@ -181,15 +194,15 @@ import (
 //}
 
 // select 和 default分支实现goroutine退出
-func worker(cancel chan bool) {
-	for {
-		select {
-		case <-cancel:
-		default:
-			fmt.Println("hello")
-		}
-	}
-}
+//func worker(cancel chan bool) {
+//	for {
+//		select {
+//		case <-cancel:
+//		default:
+//			fmt.Println("hello")
+//		}
+//	}
+//}
 
 // 只关闭一个goroutine
 //func main() {
@@ -201,13 +214,13 @@ func worker(cancel chan bool) {
 //}
 
 // 同时关闭多个
-func main() {
-	cancel := make(chan bool)
-
-	for i := 0; i < 10; i++ {
-		go worker(cancel)
-	}
-
-	time.Sleep(time.Second)
-	close(cancel)
-}
+//func main() {
+//	cancel := make(chan bool)
+//
+//	for i := 0; i < 10; i++ {
+//		go worker(cancel)
+//	}
+//
+//	time.Sleep(time.Second)
+//	close(cancel)
+//}

@@ -5,6 +5,11 @@ import (
 	"fmt"
 )
 
+/*
+	每一个package是不是都可以拥有参数传入
+*/
+
+
 var a *string = flag.String("a", "", "please input string")
 var b *bool = flag.Bool("b", false, "please input bool")
 

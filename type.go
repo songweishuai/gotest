@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 //func main() {
 //	type TestInt int
@@ -16,7 +19,7 @@ import "fmt"
 //	}
 //
 //	var aa struct {
-//		x int `a`
+//		x int `json:"width"`
 //	}
 //	fmt.Printf("%#v\n", aa)
 //
@@ -37,16 +40,63 @@ import "fmt"
 //	sort.Ints(c)
 //}
 
-const max  = 100
+//const max  = 100
+//
+//
+//// go语言是强类型语言,不同类型的变量不可以互相赋值
+//type myint int
+//
+//func main() {
+//	var a myint = 0
+//	var b int = 1
+//	// 必须使用强制类型转换
+//	a = myint(b)
+//	fmt.Println(a, b)
+//}
 
-
-// go语言是强类型语言,不同类型的变量部可以互相赋值
-type myint int
-
+// 类型判断
 func main() {
-	var a myint = 0
-	var b int = 1
-	// 必须使用强制类型转换
-	a = myint(b)
-	fmt.Println(a, b)
+	var a interface{}
+	//a = "asd"
+	//a=10
+	a = map[interface{}]interface{}{
+		"a": "b",
+	}
+
+	switch t := a.(type) {
+	case int:
+		fmt.Println(t)
+		fmt.Println("my type is int")
+	case string:
+		fmt.Println("my type is string")
+	case map[interface{}]interface{}:
+		fmt.Println("my type is map")
+	}
+	fmt.Println(fmt.Sprintf("%T", a))
+	fmt.Printf("%T\n", a)
+
+	myself(1, 2, "3", 4, 5, 6)
+}
+
+func myself(k int, val ...interface{}) {
+	fmt.Println("k:", k)
+	fmt.Println(val...)
+	fmt.Println("不解包:", val)
+	fmt.Println(reflect.TypeOf(val[0]))
+
+	switch reflect.TypeOf(val[0]).String() {
+	case "int":
+		fmt.Println("My type is int")
+	case "string":
+		fmt.Println("My type is string")
+	}
+
+	switch reflect.TypeOf(val[1]).String() {
+	case "int":
+		fmt.Println("My type is int")
+	case "string":
+		fmt.Println("My type is string")
+	}
+
+	fmt.Println(reflect.ValueOf(val))
 }

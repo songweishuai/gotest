@@ -3,12 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
-	"test/checkErr"
 )
 
 func main() {
 	file, err := os.Open("1.txt")
-	checkErr.CheckErr(err, true)
+	checkErr.CheckErr()
 	defer file.Close()
 
 	fileInfo, err := file.Stat()

@@ -76,4 +76,7 @@ func main() {
 	fmt.Println(utf8.EncodeRune(buf, 23435))
 	fmt.Println(buf)
 	fmt.Println(string(buf))
+
+	// 字符串切割
+	fmt.Println(strings.Split(testString,""))
 }

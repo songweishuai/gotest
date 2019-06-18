@@ -1,10 +1,12 @@
 package main
 
+import "fmt"
+
 func main() {
 	x := []int{-1, -2, 3}
-	i := 2
+	//i := 2
 
-	switch i {
+	switch x[1] {
 	case x[1]:
 		println("a")
 		fallthrough
@@ -19,6 +21,8 @@ func main() {
 	println("***********")
 
 	switch {
+	case x[0] < 0:
+		fmt.Println("aaaa")
 	case x[1] > 0:
 		println("a")
 	case x[1] < 0:
