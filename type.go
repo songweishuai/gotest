@@ -75,6 +75,9 @@ func main() {
 	fmt.Println(fmt.Sprintf("%T", a))
 	fmt.Printf("%T\n", a)
 
+	aaaa := 1 << 20
+	fmt.Println("aaaa:", aaaa)
+
 	myself(1, 2, "3", 4, 5, 6)
 }
 

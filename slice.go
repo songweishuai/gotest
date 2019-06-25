@@ -13,15 +13,18 @@ type Slice struct {
 
 func main() {
 	// 切片基础信息
-	////nil切片定义
-	//var a []int
-	////非nil切片定义,但是len和cap都为0
-	//var a = []int{}
-	//fmt.Println("len(a):", len(a))
-	//fmt.Println("cap(a):", cap(a))
-	//if a == nil {
-	//	fmt.Println("a == nil")
-	//}
+	// nil切片定义
+	// var a []int
+
+	// 非nil切片定义,但是len和cap都为0
+	// var a = []int{}
+
+	var a = []int{1, 2, 3, 4, 5, 6}
+	fmt.Println("len(a):", len(a))
+	fmt.Println("cap(a):", cap(a))
+	if a == nil {
+		fmt.Println("a == nil")
+	}
 
 	// 切片尾部添加数据
 	//var a []int
@@ -87,15 +90,15 @@ func main() {
 	//fmt.Println(reflect.TypeOf(b))
 
 	// 切片以参数传入
-	sl := make([]int, 3, 10)
-	fmt.Println(sl)
-	sliceTest(sl)
-	fmt.Println("len:", len(sl))
-	//unicode.Sk
-	fmt.Println("cap:", cap(sl))
-	fmt.Println(sl)
-	b := new(int)
-	fmt.Println(b)
+	//sl := make([]int, 3, 10)
+	//fmt.Println(sl)
+	//sliceTest(sl)
+	//fmt.Println("len:", len(sl))
+	////unicode.Sk
+	//fmt.Println("cap:", cap(sl))
+	//fmt.Println(sl)
+	//b := new(int)
+	//fmt.Println(b)
 }
 
 func sliceTest(sl []int) {
