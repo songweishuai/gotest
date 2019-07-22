@@ -212,6 +212,6 @@ func main() {
 	fmt.Println(dt.FieldByName("animal"))
 
 	fmt.Println(dv.Type())
-
+	fmt.Println(reflect.Indirect(dv).Type())
 	//fmt.Println(ct.Elem().In(0))
 }

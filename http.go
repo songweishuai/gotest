@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -116,6 +117,7 @@ import (
 var logger = log.New(os.Stdout, "", 0)
 
 func hello(wr http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.URL.Path)
 	wr.Write([]byte("hello"))
 }
 
@@ -134,15 +136,12 @@ func timeMiddleware(next http.HandlerFunc) http.Handler {
 
 func main() {
 	// 以接口方式注册
-	http.Handle("/", timeMiddleware(hello))
+	//http.Handle("/", timeMiddleware(hello))
 
 	// 以函数方式注册
-	http.HandleFunc("/",hello)
+	http.HandleFunc("/", hello)
 	err := http.ListenAndServe("192.168.1.96:2121", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 }
-
-
-

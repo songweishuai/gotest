@@ -1,10 +1,23 @@
 package main
 
+import "fmt"
+
+func getNum() int {
+	fmt.Println("get num begin")
+	return 0
+}
+
 func main() {
 	s := `abc`
 
-	for i, n := 0, len(s); i < n; i++ {
-		println(s[i])
+loop:
+	for true {
+		for i, n := getNum(), len(s); i < n; i++ {
+			println(s[i])
+			if i == 0 {
+				break loop
+			}
+		}
 	}
 
 	println("********")

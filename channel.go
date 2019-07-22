@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
@@ -146,9 +147,14 @@ func Producer(factor interface{}, ch chan<- interface{}) {
 }
 
 func Consumer(ch <-chan interface{}) {
-	//select {
-	//case ch:
-	//}
+	fmt.Println("Consumer begin")
+	for true {
+		select {
+		case v := <-ch:
+			fmt.Println("v:", v)
+		}
+	}
+	fmt.Println("Consumer end")
 
 	//for {
 	//	//fmt.Println((<-ch).(int))
@@ -171,7 +177,7 @@ func main() {
 	//select {}
 	sig := make(chan os.Signal, 1)
 	//signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
-	signal.Notify(sig,syscall.SIGTERM)
+	signal.Notify(sig, syscall.SIGTERM)
 	<-sig
 }
 
