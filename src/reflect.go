@@ -217,13 +217,28 @@ func main() {
 //}
 
 func main() {
+
 	var a = []int{10, 11, 12}
 	t := reflect.TypeOf(a)
-	fmt.Println("t:", t)
+	fmt.Println("t:", t.Elem())
+	fmt.Println("t kind:", t.Kind().String())
 
-	vv := reflect.ValueOf(a)
+	// 根据反射创建array,数组类型位[10]int
+	tArray := reflect.ArrayOf(10, reflect.TypeOf(10))
+	fmt.Println("t_array;", tArray)
+
+	//b := new([10]int)
+	var b [10]int
+	vv := reflect.ValueOf(&b)
 	fmt.Println("vv:", vv)
-	//fmt.Println(vv.Elem())
+	fmt.Println("vv type:",reflect.TypeOf(b))
+	fmt.Println("vv kind:", vv.Kind().String())
+	fmt.Println("vv Elem kind:", vv.Elem().Kind())
+	fmt.Println("vv Elem type:", vv.Elem().Type())
+	//reflect.SliceOf(vv.Elem().Type())
+	//switch vv.Elem().Kind() {
+	//
+	//}
 
 	v := reflect.MakeSlice(t, 3, 3)
 	fmt.Println(v)

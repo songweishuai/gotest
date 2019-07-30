@@ -1,2 +1,0 @@
-# gotest
-golang demo

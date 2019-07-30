@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+)
 
 //func main() {
 //	var countryCapitionalMap map[string]string = make(map[string]string)
@@ -32,9 +36,18 @@ import "fmt"
 //}
 
 func main() {
-	var m =map[interface{}]interface{}{
-		"song":"weishuai",
+	var m = map[string]string{
+		"song": "weishuai",
 	}
 
-	fmt.Println(m)
+	info := make([]map[string]string, 1)
+
+	info = append(info, m)
+
+	data, err := json.Marshal(info)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	fmt.Println(string(data))
 }
